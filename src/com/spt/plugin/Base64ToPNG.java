@@ -10,7 +10,7 @@ import org.apache.cordova.PluginResult;
 import org.json.JSONArray;
 
 import android.os.Environment;
-import android.util.Base64;
+
 import org.apache.commons.codec.binary.Base64;
 
 import java.io.*;
