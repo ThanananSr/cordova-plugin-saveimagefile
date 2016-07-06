@@ -1,9 +1,9 @@
 # cordova-plugin-saveimagefile
 
-#Add Plugin Save Image File
+#Add Plugin Save Image File Cordova
 cordova plugin add https://github.com/ThanananSr/cordova-plugin-saveimagefile.git
 
-#Remove Plugin Save Image File
+#Remove Plugin Save Image File Cordova
 cordova plugin rm com.spt.cordova.Base64ToPNG
 
 #Example Using In Html
