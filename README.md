@@ -15,4 +15,4 @@ window.base64ToPNG.saveImage(url, {filename:"dot.jpeg", overwrite: true}, //<br/
       alert(result);//<br/>
    }, function(error) {//<br/>
       alert(error);//<br/>
-});_
+});//
