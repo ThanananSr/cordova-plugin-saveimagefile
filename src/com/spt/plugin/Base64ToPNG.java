@@ -1,4 +1,4 @@
-package android.com.spt.plugin;
+package com.spt.plugin;
 
 import java.io.File;
 import java.io.FileOutputStream;

@@ -25,7 +25,7 @@
             </feature>
         </config-file>
 
-        <source-file src="src/android/com/spt/plugin/Base64ToPNG.java" target-dir="src/android/com/spt/plugin" />
+        <source-file src="src/com/spt/plugin/Base64ToPNG.java" target-dir="src/com/spt/plugin" />
     </platform>
     
     <!-- ios -->
