@@ -25,8 +25,7 @@
             </feature>
         </config-file>
 
-        <source-file src="src/android/libs/iText-4.2.0-com.itextpdf.jar" target-dir="libs" />
-        <source-file src="src/android/Html2pdf.java" target-dir="src/at/modalog/cordova/plugin/html2pdf" />
+        <source-file src="src/android/com/spt/plugin/Base64ToPNG.java" target-dir="src/android/com/spt/plugin" />
     </platform>
     
     <!-- ios -->
