@@ -11,12 +11,16 @@ import org.json.JSONArray;
 
 import android.os.Environment;
 import android.util.Base64;
+import org.apache.commons.codec.binary.Base64;
 
 import java.io.*;
 import org.json.JSONException;
 import org.json.JSONObject;
 
 public class Base64ToPNG extends CordovaPlugin {
+
+    private String publicTmpDir = ".com.spt.plugin.Base64ToPNG"; // prepending a dot "." would make it hidden
+    private String tmpPdfName = "tempimageqrcode.jpeg";
 
     @Override
     public boolean execute (String action, JSONArray args, CallbackContext callbackContext) throws JSONException
@@ -80,27 +84,48 @@ public class Base64ToPNG extends CordovaPlugin {
             callbackContext.sendPluginResult(pluginResult);
 
             //Directory and File
-            File dir = new File(dirName);
-            if (!dir.exists()) {
-                dir.mkdirs();
+            File sdCard = Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_PICTURES);
+//            File dir = new File (sdCard.getAbsolutePath() + "/" + this.publicTmpDir + "/");
+            File dir = new File (sdCard.getAbsolutePath() + "/");
+            dir.mkdirs();
+            File file;
+            FileOutputStream stream;
+
+            File noMediaFile = new File(dir.getAbsolutePath() + "/", ".nomedia");
+            if( !noMediaFile.exists() )
+            {
+                noMediaFile.createNewFile();
             }
-            File file = new File(dirName, fileName);
 
-            //Avoid overwriting a file
-            if (!overwrite && file.exists()) {
+            System.out.println(dir.toString());
+//            File dir = new File(dirName);
+//            if (!dir.exists()) {
+//                dir.mkdirs();
+//            }
+             file = new File(dirName, this.tmpPdfName);
+//
+//            //Avoid overwriting a file
+//            if (!overwrite && file.exists()) {
+//
+//                return true;
+//            }
+//
+//            //Decode Base64 back to Binary format
+            System.out.println("Image :" + b64String);
+//            byte[] decodedBytes = Base64.decode(b64String.getBytes(),Base64.DEFAULT);
 
-                return true;
-            }
+            String encodingPrefix = "base64,";
+            int contentStartIndex = b64String.indexOf(encodingPrefix) + encodingPrefix.length();
+            byte[] decodedBytes = Base64.decodeBase64(b64String.substring(contentStartIndex));
 
-            //Decode Base64 back to Binary format
-            byte[] decodedBytes = Base64.decode(b64String.getBytes(),Base64.DEFAULT);
-
-            //Save Binary file to phone
+//
+//            //Save Binary file to phone
             file.createNewFile();
             FileOutputStream fOut = new FileOutputStream(file);
             fOut.write(decodedBytes);
             fOut.close();
-
+            System.out.println("Success Save File");
+            System.out.println("Success Save File : "+file.toString());
 
             return true;
 
