@@ -18,7 +18,7 @@ import org.json.JSONObject;
 public class Base64ToPNG extends CordovaPlugin {
 
     private String publicTmpDir = ".com.spt.plugin.Base64ToPNG"; // prepending a dot "." would make it hidden
-    private String tmpPdfName = "tempimageqrcode.png";
+    private String tmpPdfName = "tempimageqrcode.jpeg";
 
     @Override
     public boolean execute (String action, JSONArray args, CallbackContext callbackContext) throws JSONException
