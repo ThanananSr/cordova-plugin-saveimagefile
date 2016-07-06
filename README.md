@@ -16,3 +16,6 @@ window.base64ToPNG.saveImage(url, {filename:"dot.jpeg", overwrite: true}, //<br/
    }, function(error) {//<br/>
       alert(error);//<br/>
 });//
+
+#Credit
+http://stackoverflow.com/questions/11388018/phonegap-pluginhow-to-convert-base64-string-to-a-png-image-in-android
