@@ -1,9 +1,12 @@
-package com.spt.plugin;
+package android.com.spt.plugin;
 
 import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
 
+import org.apache.cordova.CallbackContext;
+import org.apache.cordova.CordovaPlugin;
+import org.apache.cordova.PluginResult;
 import org.json.JSONArray;
 
 import android.os.Environment;
