@@ -7,7 +7,7 @@ cordova plugin add https://github.com/ThanananSr/cordova-plugin-saveimagefile.gi
 cordova plugin rm com.spt.cordova.Base64ToPNG
 
 #Example Using In Html
-var canvas = $("#qrcode > canvas");_
+var canvas = $("#qrcode > canvas");<br/>
 var url = canvas[0].toDataURL("image/jpeg");_
 
 window.base64ToPNG.saveImage(url, {filename:"dot.jpeg", overwrite: true}, _
