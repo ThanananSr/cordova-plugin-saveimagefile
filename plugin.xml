@@ -13,8 +13,8 @@
 
     </description>
 
-    <js-module src="www/Html2pdf.js" name="Html2pdf">
-        <clobbers target="html2pdf" /><!-- will be available under window.html2pdf -->
+    <js-module src="www/Base64ToPNG.js" name="Base64ToPNG">
+        <clobbers target="base64ToPNG" /><!-- will be available under window.html2pdf -->
     </js-module>
 
     <!-- android -->
