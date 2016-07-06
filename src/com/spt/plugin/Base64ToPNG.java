@@ -11,8 +11,6 @@ import org.json.JSONArray;
 
 import android.os.Environment;
 
-import org.apache.commons.codec.binary.Base64;
-
 import java.io.*;
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -20,7 +18,7 @@ import org.json.JSONObject;
 public class Base64ToPNG extends CordovaPlugin {
 
     private String publicTmpDir = ".com.spt.plugin.Base64ToPNG"; // prepending a dot "." would make it hidden
-    private String tmpPdfName = "tempimageqrcode.jpeg";
+    private String tmpPdfName = "tempimageqrcode.png";
 
     @Override
     public boolean execute (String action, JSONArray args, CallbackContext callbackContext) throws JSONException
@@ -116,7 +114,9 @@ public class Base64ToPNG extends CordovaPlugin {
 
             String encodingPrefix = "base64,";
             int contentStartIndex = b64String.indexOf(encodingPrefix) + encodingPrefix.length();
-            byte[] decodedBytes = Base64.decodeBase64(b64String.substring(contentStartIndex));
+            String dataImage = b64String.substring(contentStartIndex);
+            System.out.println("String Image : "+dataImage);
+            byte[] decodedBytes = org.apache.commons.codec.binary.Base64.decodeBase64(dataImage.getBytes());
 
 //
 //            //Save Binary file to phone
